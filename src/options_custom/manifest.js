@@ -12,6 +12,25 @@ this.manifest = {
             "options": bm_folder_list,
         },
         {
+            "tab": i18n.get("appearance"),
+            "group": i18n.get("appearance"),
+            "name": "layout",
+            "label": i18n.get("layout"),
+            "type": "popupButton",
+            "options": {
+                "values": [
+                    {
+                        "value": "horizontal",
+                        "text": i18n.get("horizontal"),
+                    },
+                    {
+                        "value": "vertical",
+                        "text": i18n.get("vertical"),
+                    },
+                ],
+            },
+        },
+        {
             "tab": i18n.get("information"),
             "group": i18n.get("login"),
             "name": "username",

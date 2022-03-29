@@ -1,0 +1,76 @@
+#main-container {
+	justify-content: space-around;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+div.class-folder {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+a.class-bookmark-link {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	margin-left: 7px;
+	min-width: 10rem;
+	min-height: 10rem;
+	max-width: 10rem;
+	max-height: 10rem;
+	word-wrap: break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+a.class-bookmark-link:hover {
+	overflow: visible;
+	transition: max-height .25s;
+	max-height: 50rem;
+}
+
+img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.class-bookmark-folder {
+	margin-left: 7px;
+}
+
+button.class-bookmark-folder-link, a.class-bookmark-link {
+	border-radius: 1rem;
+}
+
+button.class-bookmark-folder-link {
+	display: flex;
+	flex-direction: column;
+	margin-left: 7px;
+	min-width: 10rem;
+	min-height: 10rem;
+	max-width: 10rem;
+	max-height: 10rem;
+	word-wrap: break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+i {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+i:before {
+	font-size: 2rem;
+}
+
+div.class-folder > h2 {
+	flex-basis: 100%;
+	margin-top: 16px;
+	margin-bottom: 3px;
+	text-align: center;
+}

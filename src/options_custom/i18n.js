@@ -16,6 +16,18 @@ this.i18n = {
     "bookmarks-folder": {
         "en": "Bookmarks folder",
     },
+    "appearance": {
+        "en": "Appearance",
+    },
+    "layout": {
+        "en": "Layout",
+    },
+    "vertical": {
+        "en": "Vertical",
+    },
+    "horizontal": {
+        "en": "Horizontal",
+    },
     
     
     

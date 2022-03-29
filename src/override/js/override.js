@@ -13,27 +13,16 @@ let create_div = (node) => {
 	}
 }
 
-let append_to_no_folder = (node) => {
-	if ($("#-1")) {
-		// create node element
-	} else {
-		$('<div>', {
-			id: "-1",
-			class: "class-folder",
-		}).appendTo("#main-container");
-	}
-}
-
 let create_node_element = (node, parent_div) => {
 	if (node.children) {
 		// Create folder
 		let div = $('<div>', {
-			id: node.id,
 			class: "class-bookmark-folder",
 		}).appendTo(parent_div);
 		
 		let button = $('<button>', {
 			class: "btn btn-block btn-info class-bookmark-folder-link",
+			id: node.id,
 			type: "button",
 			text: node.title,
 		}).appendTo(div);
@@ -56,7 +45,8 @@ let create_node_element = (node, parent_div) => {
 		}).appendTo(div);
 
 		let url_split = node.url.split('/');
-		let favicon_url = url_split[0] + '//' + url_split[2] + '/favicon.ico';
+		let favicon_url = `${url_split[0]}//${url_split[2]}/favicon.ico`;
+		// let favicon_url = `https://www.google.com/s2/favicons?domain=${url_split[2]}`;  // Low-resolution alternative
 
 		let img = $('<img>', {
 			class: "class-favicon",
@@ -65,24 +55,51 @@ let create_node_element = (node, parent_div) => {
 	}
 }
 
-let generate_ui = async (root_node) => {
-	let node = (await chrome.bookmarks.getSubTree(root_node))[0];
+let generate_ui = async (root_node_id) => {
+	let node = (await chrome.bookmarks.getSubTree(root_node_id))[0];
+	let body = $('body');
 
 	let h1 = $('<h1>', {
 		text: node.title,
-	}).prependTo('body');
+	}).appendTo(body);
+
+	let mainDiv = $('<div>', {
+		id: 'main-container' 
+	}).appendTo(body);
+
+	let noFolderDiv = $('<div>', {
+			id: "-1",
+			class: "class-folder",
+		}).prependTo(mainDiv);
 
 	for (let child of node.children) {
-		if (child.children.length > 0) {
+		if (child.children) {
 			create_div(child);
 		} else {
-			append_to_no_folder(child);
+			create_node_element(child, noFolderDiv);
 		}
 	}
 
 	return node.children;
 }
 
-let bmFolder = window.localStorage['store.settings.bookmarksFolder'].slice(1, -1);
+let clear_ui = () => {
+	$('body').empty();
+}
 
-generate_ui(bmFolder).then(console.log);
+let on_click_folder = (node_id) => {
+	clear_ui();
+	console.log(node_id);
+	generate_ui(node_id).then(add_onclick_listener);
+}
+
+let add_onclick_listener = () => {
+	$('.class-bookmark-folder-link').each( function() {
+		$(this).click( () => {
+			on_click_folder($(this).attr('id'));
+		});
+	});
+}
+
+let bmFolder = window.localStorage['store.settings.bookmarksFolder'].slice(1, -1);
+generate_ui(bmFolder).then(add_onclick_listener);

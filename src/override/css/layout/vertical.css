@@ -1,0 +1,13 @@
+#main-container {
+	justify-content: space-around;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+img.class-favicon {
+	margin-right: 10px;
+}
+
+.class-bookmark {
+	align-items: center;
+}
