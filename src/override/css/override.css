@@ -30,23 +30,28 @@ div.class-folder {
 	max-width: 50rem;
 }
 
-div.class-bookmark {
+/*div.class-bookmark {
 	margin-top: 7px;
 	margin-bottom: 7px;
 	padding: 0.5rem;
 	background-color: #555;
 	border-radius: 10px;
-}
-
-div.class-folder-bookmark {
-	margin-top: 7px;
-	margin-bottom: 7px;
-}
+}*/
 
 a.class-bookmark-link {
-	color: #ddd;	
+	margin-top: 7px;
+	padding: 0.5rem;
+}
+
+div.class-bookmark-folder {
+	margin-top: 7px;
 }
 
 i {
 	padding-right: 7px;
+}
+
+.btn-block {
+	text-align: left;
+	white-space: normal;
 }

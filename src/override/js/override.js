@@ -29,11 +29,11 @@ let create_node_element = (node, parent_div) => {
 		// Create folder
 		let div = $('<div>', {
 			id: node.id,
-			class: "class-folder-bookmark",
+			class: "class-bookmark-folder",
 		}).appendTo(parent_div);
 		
 		let button = $('<button>', {
-			class: "btn btn-info class-folder-bookmark-link",
+			class: "btn btn-block btn-info class-bookmark-folder-link",
 			type: "button",
 			text: node.title,
 		}).appendTo(div);
@@ -48,20 +48,20 @@ let create_node_element = (node, parent_div) => {
 			id: node.id,
 			class: "class-bookmark",
 		}).appendTo(parent_div);
-
-		let url_split = node.url.split('/');
-		let favicon_url = url_split[0] + '//' + url_split[2] + '/favicon.ico';
 		
-		let img = $('<img>', {
-			class: "class-favicon",
-			src: favicon_url,
-		}).appendTo(div);
-		
-		let a = $('<a>', {
-			class: "class-bookmark-link",
+		let button = $('<a>', {
+			class: "btn btn-block btn-secondary class-bookmark-link",
 			href: node.url,
 			text: node.title,
 		}).appendTo(div);
+
+		let url_split = node.url.split('/');
+		let favicon_url = url_split[0] + '//' + url_split[2] + '/favicon.ico';
+
+		let img = $('<img>', {
+			class: "class-favicon",
+			src: favicon_url,
+		}).prependTo(button);
 	}
 }
 
