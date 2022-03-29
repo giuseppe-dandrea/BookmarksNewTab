@@ -11,53 +11,44 @@ div.class-folder {
 	justify-content: center;
 }
 
-a.class-bookmark-link {
+a.class-bookmark-link, button.class-bookmark-folder-link {
 	display: flex;
 	flex-direction: column;
-	text-align: center;
 	margin-left: 7px;
-	min-width: 10rem;
-	min-height: 10rem;
-	max-width: 10rem;
-	max-height: 10rem;
+	min-width: 8rem;
+	min-height: 8rem;
+	max-width: 8rem;
+	max-height: 8rem;
+	justify-content: flex-start;
+	border-radius: 1rem;
+	text-align: center;
 	word-wrap: break-word;
 	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
-a.class-bookmark-link:hover {
+a.class-bookmark-link:hover, button.class-bookmark-folder-link:hover {
 	overflow: visible;
 	transition: max-height .25s;
 	max-height: 50rem;
 }
 
+button.class-bookmark-folder-link {
+	align-items: center;
+}
+
 img {
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	height: 48px;
+	width: 48px;
 }
 
 div.class-bookmark-folder {
 	margin-left: 7px;
 }
 
-button.class-bookmark-folder-link, a.class-bookmark-link {
-	border-radius: 1rem;
-}
-
-button.class-bookmark-folder-link {
-	display: flex;
-	flex-direction: column;
-	margin-left: 7px;
-	min-width: 10rem;
-	min-height: 10rem;
-	max-width: 10rem;
-	max-height: 10rem;
-	word-wrap: break-word;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	justify-content: flex-start;
-	align-items: center;
-}
 
 i {
 	margin-top: 1rem;
