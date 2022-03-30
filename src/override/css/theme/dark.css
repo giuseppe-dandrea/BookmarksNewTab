@@ -1,0 +1,15 @@
+body {
+	background-color: rgb(44 44 44);	
+}
+
+h1, h2 {
+	color: #ccc;
+}
+
+a.btn-secondary {
+	color: #2e2d32;
+	background-color: #bac6d1;
+	border-color: #d1deeb;
+	border-width: 3px;
+	font-weight: 500;
+}

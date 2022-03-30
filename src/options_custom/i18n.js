@@ -28,6 +28,15 @@ this.i18n = {
     "horizontal": {
         "en": "Horizontal",
     },
+    "theme": {
+        "en": "Theme",
+    },
+    "dark": {
+        "en": "Dark",
+    },
+    "light": {
+        "en": "Light",
+    },
     
     
     

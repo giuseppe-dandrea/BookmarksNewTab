@@ -31,6 +31,25 @@ this.manifest = {
             },
         },
         {
+            "tab": i18n.get("appearance"),
+            "group": i18n.get("appearance"),
+            "name": "theme",
+            "label": i18n.get("theme"),
+            "type": "popupButton",
+            "options": {
+                "values": [
+                    {
+                        "value": "dark",
+                        "text": i18n.get("dark"),
+                    },
+                    {
+                        "value": "light",
+                        "text": i18n.get("light"),
+                    },
+                ],
+            },
+        },
+        {
             "tab": i18n.get("information"),
             "group": i18n.get("login"),
             "name": "username",
