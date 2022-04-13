@@ -33,6 +33,7 @@ a.class-bookmark-link:hover, button.class-bookmark-folder-link:hover {
 }
 
 button.class-bookmark-folder-link {
+	margin-left: 0px;
 	align-items: center;
 }
 
