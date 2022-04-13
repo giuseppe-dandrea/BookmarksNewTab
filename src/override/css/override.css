@@ -4,6 +4,7 @@ body {
 }
 
 h1 {
+	display: inline;
 	font-size: 3rem;
 }
 
@@ -53,4 +54,21 @@ i {
 .btn-block {
 	text-align: left;
 	white-space: normal;
+}
+
+.class-folder-title {
+	cursor: pointer;
+}
+
+.class-folder-title:hover {
+	color: #17a2b8;
+}
+
+.fa-arrow-up {
+	margin-left: 10px;
+}
+
+.fa-arrow-up:hover {
+	cursor: pointer;
+	color: #17a2b8;
 }

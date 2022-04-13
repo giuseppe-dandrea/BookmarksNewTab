@@ -5,7 +5,10 @@ let create_div = (node) => {
 	}).appendTo("#main-container");
 
 	let title = $('<h2>', {
+		class: "class-folder-title",
 		text: node.title,
+		id: node.id,
+		click: () => on_click_folder(node.id)
 	}).appendTo(div);
 
 	for (let i in node.children) {
@@ -63,6 +66,13 @@ let generate_ui = async (root_node_id) => {
 		text: node.title,
 	}).appendTo(body);
 
+	if (root_node_id !== "0") {
+		let parent_button = $('<i>', {
+			class: "fa fa-arrow-up",
+			click: () => on_click_folder(node.parentId)
+		}).appendTo(body);
+	}
+
 	let mainDiv = $('<div>', {
 		id: 'main-container' 
 	}).appendTo(body);
@@ -89,7 +99,6 @@ let clear_ui = () => {
 
 let on_click_folder = (node_id) => {
 	clear_ui();
-	console.log(node_id);
 	generate_ui(node_id).then(add_onclick_listener);
 }
 
@@ -101,5 +110,6 @@ let add_onclick_listener = () => {
 	});
 }
 
-let bmFolder = window.localStorage['store.settings.bookmarksFolder'].slice(1, -1);
+// let bmFolder = window.localStorage['store.settings.bookmarksFolder'].slice(1, -1);
+let bmFolder = get_option("bookmarksFolder", "0")
 generate_ui(bmFolder).then(add_onclick_listener);
