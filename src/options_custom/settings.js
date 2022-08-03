@@ -1,9 +1,9 @@
 window.addEvent("domready", function () {
     // Option 1: Use the manifest:
     new FancySettings.initWithManifest(async function (settings) {
-        settings.manifest.myButton.addEvent("action", function () {
-            alert("You clicked me!");
-        });
+        // settings.manifest.myButton.addEvent("action", function () {
+        //     alert("You clicked me!");
+        // });
 
         // chrome.bookmarks.getTree( (bm_tree) => {
 
