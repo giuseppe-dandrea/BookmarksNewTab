@@ -16,6 +16,13 @@ let create_div = (node) => {
 	}
 }
 
+let favicon_url = (u) => {
+	const url = new URL(chrome.runtime.getURL("/_favicon/"));
+	url.searchParams.set("pageUrl", u);
+	url.searchParams.set("size", "64");
+	return url.toString();
+}
+
 let create_node_element = (node, parent_div) => {
 	if (node.children) {
 		// Create folder
@@ -47,13 +54,9 @@ let create_node_element = (node, parent_div) => {
 			text: node.title,
 		}).appendTo(div);
 
-		let url_split = node.url.split('/');
-		let favicon_url = `${url_split[0]}//${url_split[2]}/favicon.ico`;
-		// let favicon_url = `https://www.google.com/s2/favicons?domain=${url_split[2]}`;  // Low-resolution alternative
-
 		let img = $('<img>', {
 			class: "class-favicon",
-			src: favicon_url,
+			src: favicon_url(node.url),
 		}).prependTo(button);
 	}
 }
